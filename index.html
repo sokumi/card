@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GIF Layout Editor - Stage 1</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="panel">
+      <div class="brand">
+        <div>
+          <p class="eyebrow">STAGE 1</p>
+          <h1>GIF Layout Editor</h1>
+        </div>
+        <button id="resetBtn" class="ghost">초기화</button>
+      </div>
+
+      <section class="control-group">
+        <h2>이미지</h2>
+        <label class="file-card">
+          <span>배경 이미지</span>
+          <input id="bgInput" type="file" accept="image/*" />
+        </label>
+        <label class="file-card">
+          <span>왼쪽 이미지</span>
+          <input id="leftInput" type="file" accept="image/*" />
+        </label>
+        <label class="file-card">
+          <span>오른쪽 이미지</span>
+          <input id="rightInput" type="file" accept="image/*" />
+        </label>
+      </section>
+
+      <section class="control-group">
+        <h2>텍스트</h2>
+        <label>
+          <span>말풍선</span>
+          <textarea id="speechInput" rows="2">슈슈, 카메라 볼래요? 그래요, 지금 저를요.</textarea>
+        </label>
+        <label>
+          <span>프로필 이름</span>
+          <input id="nameInput" type="text" value="아이네" />
+        </label>
+        <label>
+          <span>상태 문구</span>
+          <input id="statusInput" type="text" value="@Ainchase" />
+        </label>
+        <label>
+          <span>채팅</span>
+          <input id="chatInput" type="text" value="내가 잘못했어요. 화 풀어요." />
+        </label>
+        <label>
+          <span>노래 제목</span>
+          <input id="songInput" type="text" value="Blind Love" />
+        </label>
+        <label>
+          <span>아티스트</span>
+          <input id="artistInput" type="text" value="MAZE" />
+        </label>
+      </section>
+
+      <section class="control-group">
+        <h2>효과</h2>
+        <label class="switch-row">
+          <span>반짝임</span>
+          <input id="sparklesInput" type="checkbox" checked />
+        </label>
+        <label class="switch-row">
+          <span>둥실 움직임</span>
+          <input id="floatInput" type="checkbox" checked />
+        </label>
+        <label>
+          <span>애니메이션 강도</span>
+          <input id="motionInput" type="range" min="0" max="100" value="55" />
+        </label>
+      </section>
+
+      <section class="control-group">
+        <h2>내보내기</h2>
+        <div class="button-grid">
+          <button id="jpgBtn" class="primary">JPG 저장</button>
+          <button id="gifBtn" class="primary">GIF 저장</button>
+        </div>
+        <p class="hint">GIF: 3초 · 12fps · 브라우저에서 직접 생성</p>
+        <div id="progressWrap" class="progress-wrap hidden">
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+          <span id="progressText">0%</span>
+        </div>
+      </section>
+    </aside>
+
+    <main class="workspace">
+      <header class="workspace-top">
+        <div>
+          <p class="eyebrow">LIVE PREVIEW</p>
+          <h2>실시간 미리보기</h2>
+        </div>
+        <div class="toolbar">
+          <button id="playBtn" class="ghost">일시정지</button>
+          <button id="fitBtn" class="ghost">화면 맞춤</button>
+        </div>
+      </header>
+
+      <div class="stage-shell">
+        <canvas id="canvas" width="1200" height="675"></canvas>
+      </div>
+
+      <p class="footnote">
+        이미지를 업로드하면 브라우저 안에서만 사용됩니다. 서버 업로드 없이 Canvas로 렌더링합니다.
+      </p>
+    </main>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
